@@ -48,7 +48,7 @@ var loadScript = function() {
 	
 	settingTbl = document.getElementById('settingTable');
 	
-	settingButton = document.getElementById('settingButton');
+	detailButton = document.getElementById('detailButton');
 	
 	
 }
@@ -393,11 +393,11 @@ displaySetting = function() {
 	if(settingTbl.style.visibility=="") {
 		settingTbl.style.visibility="hidden";
 		settingTbl.style.display="none";
-		settingButton.value="詳細設定　▽";
+		detailButton.value="詳細設定　▽";
 	} else {
 		settingTbl.style.visibility="";
 		settingTbl.style.display="";
-		settingButton.value="詳細設定　△";
+		detailButton.value="詳細設定　△";
 	}
 }
 	

@@ -1,9 +1,8 @@
 {
   "name": "Chrome拡張test",
   "description": "文字列変換",
-  "version": "0.2",
+  "version": "0.4",
   "manifest_version": 2,
-  "options_page": "options.html",
   "browser_action": {
     "default_title": "文字列変換"
   },
