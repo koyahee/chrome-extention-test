@@ -6,52 +6,6 @@
 
 var checkCount;
 
-var loadScript = function() {
-	outputText = document.getElementById('outputText');
-	inputText = document.getElementById('inputText');
-	
-	wideOption = document.getElementById('wideOption');
-	narrowOption = document.getElementById('narrowOption');
-	wnOption = document.getElementById('wnOption');
-	
-	sortOption = document.getElementById('sortOption');
-	uniqueOption = document.getElementById('uniqueOption');
-	
-	joinOption1 = document.getElementById('joinOption1');
-	joinOption2 = document.getElementById('joinOption2');
-	joinOption3 = document.getElementById('joinOption3');
-	joinOption4 = document.getElementById('joinOption4');
-	joinOptionT = document.getElementById('joinOptionT');
-	joinOptionTi = document.getElementById('joinOptionTi');
-	
-	splitOption1 = document.getElementById('splitOption1');
-	splitOption2 = document.getElementById('splitOption2');
-	splitOption3 = document.getElementById('splitOption3');
-	splitOption4 = document.getElementById('splitOption4');
-	splitOption5 = document.getElementById('splitOption5');
-	splitOption6 = document.getElementById('splitOption6');
-	
-	inputOption1 = document.getElementById('inputOption1');
-	inputOption2 = document.getElementById('inputOption2');
-	inputOption3 = document.getElementById('inputOption3');
-	inputOption4 = document.getElementById('inputOption4');
-	inputOption5 = document.getElementById('inputOption5');
-	inputOption6 = document.getElementById('inputOption6');
-	inputOption7 = document.getElementById('inputOption7');
-	inputOption8 = document.getElementById('inputOption8');
-	inputOption8A = document.getElementById('inputOption8A');
-	inputOption8B = document.getElementById('inputOption8B');
-	
-	allOption = document.getElementById('allOption');
-	
-	countText = document.getElementById('countText');
-	
-	settingTbl = document.getElementById('settingTable');
-	
-	detailButton = document.getElementById('detailButton');
-	
-	
-}
 
 textClear = function () {
 //	alert("clear");
@@ -349,13 +303,6 @@ allOptionChanged = function() {
 	setStart();
 }
 	
-if(window.addEventListener) {
-	window.addEventListener('load', loadScript, false);
-} else if (window.attachEvent) {
-	window.attachEvent('onload', loadScript);
-} else {
-	window.onload = loadScript;
-}
 
 copyToClipboard = function () {
 	copy(outputText.value);
@@ -380,10 +327,10 @@ var i,value;
 	} else {
 for ( i=0; i<array.length; i++) {
    value = array[i];
-      if (!(value in storage)) {
-       storage[value] = true;
-         uniqueArray.push(value);
-       }
+	  if (!(value in storage)) {
+	   storage[value] = true;
+		 uniqueArray.push(value);
+	   }
    }
 	}
    return uniqueArray;
@@ -591,7 +538,7 @@ sendStatus = function (param1 , param2 , param3 ) {
 
 resize = function (width, height) {
 	window.resizeTo (width,height)
-//	alert("changed" + width +", "+height)
+	alert("changed" + width +", "+height)
 }
 
 
@@ -599,53 +546,109 @@ resize = function (width, height) {
 
 
 document.addEventListener('DOMContentLoaded', function() {
-    document.getElementById('startButton').addEventListener('click', setStart);
-    
-    
-    document.getElementById('clearButton').addEventListener('click', textClear);
-    
-    
-    document.getElementById('pasteButton').addEventListener('click', pasteFromClipboard);
-    document.getElementById('onceButton').addEventListener('click', once);
-    document.getElementById('copyButton').addEventListener('click', copyToClipboard);
-    
-    
-    
-document.getElementById('presetButton1').addEventListener('click', presetYJ);
-document.getElementById('presetButton2').addEventListener('click', presetDrugName);
-document.getElementById('presetButton3').addEventListener('click', presetSort);
-document.getElementById('presetButton4').addEventListener('click', presetList);
-document.getElementById('presetButton5').addEventListener('click', presetSp2Tab);
-document.getElementById('presetButton6').addEventListener('click', presetNW);
-document.getElementById('detailButton').addEventListener('click', displaySetting);
-    
-    
-    
-    
-    
-    
-    
-    
+
+
+
+
+	outputText = document.getElementById('outputText');
+	inputText = document.getElementById('inputText');
+	
+	wideOption = document.getElementById('wideOption');
+	narrowOption = document.getElementById('narrowOption');
+	wnOption = document.getElementById('wnOption');
+	
+	sortOption = document.getElementById('sortOption');
+	uniqueOption = document.getElementById('uniqueOption');
+	
+	joinOption1 = document.getElementById('joinOption1');
+	joinOption2 = document.getElementById('joinOption2');
+	joinOption3 = document.getElementById('joinOption3');
+	joinOption4 = document.getElementById('joinOption4');
+	joinOptionT = document.getElementById('joinOptionT');
+	joinOptionTi = document.getElementById('joinOptionTi');
+	
+	splitOption1 = document.getElementById('splitOption1');
+	splitOption2 = document.getElementById('splitOption2');
+	splitOption3 = document.getElementById('splitOption3');
+	splitOption4 = document.getElementById('splitOption4');
+	splitOption5 = document.getElementById('splitOption5');
+	splitOption6 = document.getElementById('splitOption6');
+	
+	inputOption1 = document.getElementById('inputOption1');
+	inputOption2 = document.getElementById('inputOption2');
+	inputOption3 = document.getElementById('inputOption3');
+	inputOption4 = document.getElementById('inputOption4');
+	inputOption5 = document.getElementById('inputOption5');
+	inputOption6 = document.getElementById('inputOption6');
+	inputOption7 = document.getElementById('inputOption7');
+	inputOption8 = document.getElementById('inputOption8');
+	inputOption8A = document.getElementById('inputOption8A');
+	inputOption8B = document.getElementById('inputOption8B');
+	
+	allOption = document.getElementById('allOption');
+	
+	countText = document.getElementById('countText');
+	
+	settingTbl = document.getElementById('settingTable');
+	
+	detailButton = document.getElementById('detailButton');
+
+
+
+	document.getElementById('startButton').addEventListener('click', setStart);
+	
+	
+	document.getElementById('clearButton').addEventListener('click', textClear);
+	
+	
+	document.getElementById('pasteButton').addEventListener('click', pasteFromClipboard);
+	document.getElementById('onceButton').addEventListener('click', once);
+	document.getElementById('copyButton').addEventListener('click', copyToClipboard);
+	
+	
+	
+	document.getElementById('presetButton1').addEventListener('click', presetYJ);
+	document.getElementById('presetButton2').addEventListener('click', presetDrugName);
+	document.getElementById('presetButton3').addEventListener('click', presetSort);
+	document.getElementById('presetButton4').addEventListener('click', presetList);
+	document.getElementById('presetButton5').addEventListener('click', presetSp2Tab);
+	document.getElementById('presetButton6').addEventListener('click', presetNW);
+	document.getElementById('detailButton').addEventListener('click', displaySetting);
+		
+	document.getElementById('testButton').addEventListener('click', lsTest);
+	
+	
+	
+	
+	
+	
+	
 });
+
+
+lsTest = function () {
+	alert(localStorage.getItem("key"));
+	localStorage.setItem("key", "aaa");
+}
 
 // Write Javascript code!
 const copy = function () {
-  navigator.clipboard.writeText(document.getElementById('outputText').value)
-    .then(function () {
-      console.log('copied to clipboard');
-    }, function () {
-      console.log('failed to copy');
-    });
+	navigator.clipboard.writeText(document.getElementById('outputText').value)
+	.then(function () {
+		console.log('copied to clipboard');
+	}, function () {
+		console.log('failed to copy');
+	});
 };
 
 
 const paste = function () {
-  navigator.clipboard.readText()
-    .then(function (text) {
-      document.getElementById('inputText').textContent = text;
-    }, function () {
-      console.log('failed to paste');
-    });
+	navigator.clipboard.readText()
+	.then(function (text) {
+	  document.getElementById('inputText').textContent = text;
+	}, function () {
+	  console.log('failed to paste');
+	});
 };
 
 }())
