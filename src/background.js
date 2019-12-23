@@ -3,7 +3,7 @@ var showMainPage = function() {
   chrome.windows.create({
     url:'main.html',
     type: 'popup',
-    width: 650, height: 450,
+    width: 930, height: 500,
         focused: true
   });
 };
