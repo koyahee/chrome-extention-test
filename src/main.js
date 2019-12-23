@@ -11,11 +11,10 @@ textClear = function () {
 //	alert("clear");
 	outputText.value = "";
 	inputText.value = "";
-	setStart();
-	updateTextInfo();
+	replaceText();
 }
 	
-setStart = function() {
+replaceText = function() {
 	var cwn = new CharWideNarrow();
 	var tmpList = inputText.value;
 	
@@ -236,36 +235,35 @@ setStart = function() {
 	}
 	*/
 	outputText.value = outputText.value.replace(/''/g, "")
-	updateTextInfo();
 }
 	
 WideNarrowChanged = function() {
-	setStart();
+	replaceText();
 	checkChecked();
 }
 
 UniqueChanged = function() {
-	setStart();
+	replaceText();
 	checkChecked();
 }
 
 SortChanged = function() {
-	setStart();
+	replaceText();
 	checkChecked();
 }
 
 joinOptionChanged = function() {
-	setStart();
+	replaceText();
 	checkChecked();
 }
 	
 splitOptionChanged = function() {
-	setStart();
+	replaceText();
 //	checkChecked();
 }
 	
 inputOptionChanged = function() {
-	setStart();
+	replaceText();
 }
 
 
@@ -300,21 +298,13 @@ allOptionChanged = function() {
 	joinOption2.checked=allOption.checked;
 	joinOption3.checked=allOption.checked;
 	
-	setStart();
-}
-	
-
-copyToClipboard = function () {
-	copy(outputText.value);
+	replaceText();
 }
 
-pasteFromClipboard = function () {
-	paste();
-}
 	
-once = function () {
+oneClick = function () {
 	pasteFromClipboard();
-	setStart();
+	replaceText();
 	copyToClipboard();
 }
 
@@ -501,40 +491,12 @@ setPreset = function (iOption,wn,oOption) {
 		allOption.checked = ""
 		allOptionChanged();
 	} else {
-		setStart();
+		replaceText();
 	}
 
 	
 }
 
-updateTextInfo = function() {
-	
-//	alert(outputText.value.split("\r\n").length)
-	if(outputText.value.length > 0) {
-		infoText.innerHTML = "　リスト件数： " + outputText.value.split("\r\n").length
-		sendStatus(null, "件数： " + outputText.value.split("\r\n").length);
-	} else {
-//		infoText.innerHTML = "　リスト件数： " + 0;
-		infoText.innerHTML = ""
-		sendStatus(null, "");
-	}
-//	infoText.innerHTML = "　リスト件数： " + if(outputText.value.length > 0) {outputText.value.split("\r\n").length} else {0};
-//	sendStatus(null, "件数： " + outputText.value.split("\r\n").length);
-	
-}
-
-
-sendStatus = function (param1 , param2 , param3 ) {
-	
-	var statusBar = window.parent.document.getElementById("StatusBar");
-	
-	if(statusBar) {
-		if(param1 != null) statusBar.Panels(1).Text = param1
-		if(param2 != null) statusBar.Panels(2).Text = param2
-		if(param3 != null) statusBar.Panels(3).Text = param3
-	}
-
-}
 
 resize = function (width, height) {
 	window.resizeTo (width,height)
@@ -546,8 +508,6 @@ resize = function (width, height) {
 
 
 document.addEventListener('DOMContentLoaded', function() {
-
-
 
 
 	outputText = document.getElementById('outputText');
@@ -594,17 +554,14 @@ document.addEventListener('DOMContentLoaded', function() {
 	detailButton = document.getElementById('detailButton');
 
 
-
-	document.getElementById('startButton').addEventListener('click', setStart);
-	
-	
+	document.getElementById('replaceButton').addEventListener('click', replaceText);
 	document.getElementById('clearButton').addEventListener('click', textClear);
 	
-	
 	document.getElementById('pasteButton').addEventListener('click', pasteFromClipboard);
-	document.getElementById('onceButton').addEventListener('click', once);
+	document.getElementById('onceButton').addEventListener('click', oneClick);
 	document.getElementById('copyButton').addEventListener('click', copyToClipboard);
 	
+	document.getElementById('testButton').addEventListener('click', lsTest);
 	
 	
 	document.getElementById('presetButton1').addEventListener('click', presetYJ);
@@ -615,13 +572,6 @@ document.addEventListener('DOMContentLoaded', function() {
 	document.getElementById('presetButton6').addEventListener('click', presetNW);
 	document.getElementById('detailButton').addEventListener('click', displaySetting);
 		
-	document.getElementById('testButton').addEventListener('click', lsTest);
-	
-	
-	
-	
-	
-	
 	
 });
 
@@ -632,7 +582,7 @@ lsTest = function () {
 }
 
 // Write Javascript code!
-const copy = function () {
+const copyToClipboard = function () {
 	navigator.clipboard.writeText(document.getElementById('outputText').value)
 	.then(function () {
 		console.log('copied to clipboard');
@@ -642,10 +592,11 @@ const copy = function () {
 };
 
 
-const paste = function () {
+const pasteFromClipboard = function () {
 	navigator.clipboard.readText()
 	.then(function (text) {
 	  document.getElementById('inputText').textContent = text;
+		console.log('pasted from clipboard');
 	}, function () {
 	  console.log('failed to paste');
 	});
