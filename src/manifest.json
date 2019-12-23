@@ -1,7 +1,7 @@
 {
   "name": "Chrome拡張test",
   "description": "文字列変換",
-  "version": "0.4",
+  "version": "0.5",
   "manifest_version": 2,
   "browser_action": {
     "default_title": "文字列変換"
@@ -12,6 +12,11 @@
     ],
     "persistent": false
   },
+  "icons": {
+    "16": "icon16.png",
+    "48": "icon48.png",
+    "128": "icon128.png"
+},
   "permissions": [
     "storage"
   ]
