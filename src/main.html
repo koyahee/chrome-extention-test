@@ -21,7 +21,7 @@
 <input id ="testButton" type="button" value="てすと" />
 <table>
 <tr>
-<td><input id ="detailButton" type="button" value="設定 ▽"  /></td>
+<td><input id ="confButton" type="button" value="設定 ▽"  /></td>
 <td>プリセット：</td>
 <td><input id ="presetButton1" type="button" value="YJコード" /></td>
 <td><input id ="presetButton2" type="button" value="薬剤名" /></td>
@@ -40,45 +40,45 @@
 <!-- ↓ 設定 入力 ↓ -->
 <tr><td colspan="3"><label>プリセット名：<input id="presetName" type="text" size="40" name="presetName" /></label></td></tr>
 <tr><td colspan="2" style="width:50px;">入力：</td><td>
-<label><input id="splitOption1" type="checkbox" name="splitOption1" />「、」で分割</label>　
-<label><input id="splitOption5" type="checkbox" name="splitOption5" />「，」で分割</label>　
-<label><input id="splitOption2" type="checkbox" name="splitOption2" />「TAB」で分割</label>
+<label><input id="splitOption1" type="checkbox" name="option" />「、」で分割</label>　
+<label><input id="splitOption5" type="checkbox" name="option" />「，」で分割</label>　
+<label><input id="splitOption2" type="checkbox" name="option" />「TAB」で分割</label>
 <br/>
-<label><input id="splitOption3" type="checkbox" name="splitOption3" checked="checked" />「改行」で分割</label>
-<label><input id="splitOption4" type="checkbox" name="splitOption4" />「／」で分割</label>　
-<label><input id="splitOption6" type="checkbox" name="splitOption6" />「　」で分割</label>
+<label><input id="splitOption3" type="checkbox" name="option" checked="checked" />「改行」で分割</label>
+<label><input id="splitOption4" type="checkbox" name="option" />「／」で分割</label>　
+<label><input id="splitOption6" type="checkbox" name="option" />「　」で分割</label>
 </td></tr>
 
 <!-- ↓ 設定 処理 ↓ -->
 <tr><td colspan="2">処理：</td><td>
-<label><input id="inputOption1" type="checkbox" name="inputOption1" checked="checked" />「”」の除去</label>　
-<label><input id="inputOption2" type="checkbox" name="inputOption2" checked="checked" />前後の空白の除去</label>　
-<label><input id="inputOption3" type="checkbox" name="inputOption3" checked="checked" />空白の除去</label>
+<label><input id="inputOption1" type="checkbox" name="option" checked="checked" />「”」の除去</label>　
+<label><input id="inputOption2" type="checkbox" name="option" checked="checked" />前後の空白の除去</label>　
+<label><input id="inputOption3" type="checkbox" name="option" checked="checked" />空白の除去</label>
 <br/>
-<label><input id="inputOption4" type="checkbox" name="inputOption4" checked="checked" />，→、</label>　
-<label><input id="inputOption5" type="checkbox" name="inputOption5" />、→，</label>　
-<label><input id="inputOption6" type="checkbox" name="inputOption6" checked="checked" />．→。</label>　
-<label><input id="inputOption7" type="checkbox" name="inputOption7" />。→．</label>
+<label><input id="inputOption4" type="checkbox" name="option" checked="checked" />，→、</label>　
+<label><input id="inputOption5" type="checkbox" name="option" />、→，</label>　
+<label><input id="inputOption6" type="checkbox" name="option" checked="checked" />．→。</label>　
+<label><input id="inputOption7" type="checkbox" name="option" />。→．</label>
 <br/>
-<label><input id="inputOption8" type="checkbox" name="inputOption8" />「<input id="inputOption8A" type="text" name="inputOption8A" />」→「<input id="inputOption8B" type="text" name="inputOption8B" />」</label>
+<label><input id="inputOption8" type="checkbox" name="option" />「<input id="inputOption8A" type="text" name="option" />」→「<input id="inputOption8B" type="text" name="option" />」</label>
 </td></tr>
 <!-- ↑ 設定 入力 ↑ -->
 <!-- ↓ 設定 出力 ↓ -->
 <tr><td colspan="2">出力：</td><td>
-<label><input id="narrowOption" type="radio" name="WideNarrowOption" value="0" checked="checked" />半角</label>　
-<label><input id="wideOption" type="radio" name="WideNarrowOption" value="1" />全角</label>　
-<label><input id="wnOption" type="radio" name="WideNarrowOption" value="-1" />そのまま</label>
+<label><input id="narrowOption" type="radio" name="option" value="0" checked="checked" />半角</label>　
+<label><input id="wideOption" type="radio" name="option" value="1" />全角</label>　
+<label><input id="wnOption" type="radio" name="option" value="-1" />そのまま</label>
 <br/>
-<label><input id="uniqueOption" type="checkbox" name="UniqueOption" checked="checked" />重複削除</label>　
-<label><input id="sortOption" type="checkbox" name="SortOption" checked="checked" />ソート</label>　
-<label><input id="joinOption1" type="checkbox" name="joinOption1" checked="checked" />「'」でくくる</label>
+<label><input id="uniqueOption" type="checkbox" name="option" checked="checked" />重複削除</label>　
+<label><input id="sortOption" type="checkbox" name="option" checked="checked" />ソート</label>　
+<label><input id="joinOption1" type="checkbox" name="option" checked="checked" />「'」でくくる</label>
 <br/>
-<label><input id="joinOption2" type="checkbox" name="joinOption2" checked="checked" />「,」で区切る</label>　
-<label><input id="joinOption3" type="checkbox" name="joinOption3" />「TAB」で区切る</label>
+<label><input id="joinOption2" type="checkbox" name="option" checked="checked" />「,」で区切る</label>　
+<label><input id="joinOption3" type="checkbox" name="option" />「TAB」で区切る</label>
 <br/>
-<label><input id="joinOption4" type="checkbox" name="joinOption4" checked="checked" />改行</label>　
+<label><input id="joinOption4" type="checkbox" name="option" checked="checked" />改行</label>　
 <label><input id="allOption" type="checkbox" name="allOption" />全部</label>　
-<label><input id="joinOptionT" type="checkbox" name="joinOptionT" />「<input id="joinOptionTi" type="text" size="7" maxlength="5" name="joinOptionTi" />」で区切る</label>
+<label><input id="joinOptionT" type="checkbox" name="option" />「<input id="joinOptionTi" type="text" size="7" maxlength="5" name="joinOptionTi" />」で区切る</label>
 </td></tr>
 <!-- ↑ 設定 出力 ↑ -->
 </table>

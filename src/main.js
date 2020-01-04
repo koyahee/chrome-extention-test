@@ -4,6 +4,8 @@
 	
 //	document.write("<script type='text/javascript' src='CharWideNarrow.js'></script>");
 
+var presetObj;
+
 var checkCount;
 
 
@@ -236,34 +238,10 @@ replaceText = function() {
 	*/
 	outputText.value = outputText.value.replace(/''/g, "")
 }
-	
-WideNarrowChanged = function() {
-	replaceText();
-	checkChecked();
-}
 
-UniqueChanged = function() {
+valueChanged = function() {
 	replaceText();
 	checkChecked();
-}
-
-SortChanged = function() {
-	replaceText();
-	checkChecked();
-}
-
-joinOptionChanged = function() {
-	replaceText();
-	checkChecked();
-}
-	
-splitOptionChanged = function() {
-	replaceText();
-//	checkChecked();
-}
-	
-inputOptionChanged = function() {
-	replaceText();
 }
 
 
@@ -297,6 +275,7 @@ allOptionChanged = function() {
 	joinOption1.checked=allOption.checked;
 	joinOption2.checked=allOption.checked;
 	joinOption3.checked=allOption.checked;
+	joinOption4.checked=allOption.checked;
 	
 	replaceText();
 }
@@ -330,13 +309,13 @@ displaySetting = function() {
 	if(settingTbl.style.visibility=="") {
 		settingTbl.style.visibility="hidden";
 		settingTbl.style.display="none";
-		detailButton.value="設定 ▽";
+		confButton.value="設定 ▽";
 		window.resizeTo(930, 500);
 		
 	} else {
 		settingTbl.style.visibility="";
 		settingTbl.style.display="";
-		detailButton.value="設定 △";
+		confButton.value="設定 △";
 	}
 	
 	resizeWindow();
@@ -490,7 +469,17 @@ resize = function (width, height) {
 
 
 document.addEventListener('click', function(e) {
-//	console.log(e.target.id);
+
+	switch (e.target.name) {
+		
+		case "option":
+			valueChanged();
+			break;
+			
+		default:
+			break;
+			
+	}
 	
 	switch (e.target.id) {
 		
@@ -501,6 +490,7 @@ document.addEventListener('click', function(e) {
 		case "clearButton":
 			textClear();
 			break;
+	
 	
 		case "pasteButton":
 			pasteFromClipboard();
@@ -514,17 +504,21 @@ document.addEventListener('click', function(e) {
 			copyToClipboard();
 			break;
 	
+	
 		case "testButton":
 			lsTest();
 			break;
 	
-		case "detailButton":
+	
+		case "confButton":
 			displaySetting();
 			break;
+			
 			
 		case "presetButton0":
 			presetAdd();
 			break;
+			
 			
 		case "presetButton1":
 			setPreset("356","0","12346");
@@ -553,112 +547,11 @@ document.addEventListener('click', function(e) {
 			
 			
 			
-		case "narrowOption":
-			WideNarrowChanged();
-			break;
-			
-		case "wideOption":
-			WideNarrowChanged();
-			break;
-			
-		case "wnOption":
-			WideNarrowChanged();
-			break;
-			
-		case "splitOption1":
-			splitOptionChanged();
-			break;
-			
-		case "splitOption2":
-			splitOptionChanged();
-			break;
-			
-		case "splitOption3":
-			splitOptionChanged();
-			break;
-			
-		case "splitOption4":
-			splitOptionChanged();
-			break;
-			
-		case "splitOption5":
-			splitOptionChanged();
-			break;
-			
-		case "splitOption6":
-			splitOptionChanged();
-			break;
-			
-			
-		case "inputOption1":
-			inputOptionChanged();
-			break;
-			
-		case "inputOption2":
-			inputOptionChanged();
-			break;
-			
-		case "inputOption3":
-			inputOptionChanged();
-			break;
-			
-		case "inputOption4":
-			inputOptionChanged();
-			break;
-			
-		case "inputOption5":
-			inputOptionChanged();
-			break;
-			
-		case "inputOption6":
-			inputOptionChanged();
-			break;
-			
-		case "inputOption7":
-			inputOptionChanged();
-			break;
-			
-		case "inputOption8":
-			inputOptionChanged();
-			break;
-			
-			
-		case "uniqueOption":
-			UniqueChanged();
-			break;
-			
-			
-		case "sortOption":
-			SortChanged();
-			break;
-			
-			
-		case "joinOption1":
-			joinOptionChanged();
-			break;
-			
-		case "joinOption2":
-			joinOptionChanged();
-			break;
-			
-		case "joinOption3":
-			joinOptionChanged();
-			break;
-			
-		case "joinOption4":
-			joinOptionChanged();
-			break;
-			
-		case "joinOptionT":
-			joinOptionChanged();
-			break;
 			
 			
 		case "allOption":
 			allOptionChanged();
 			break;
-			
-			
 			
 		default:
 			break;
@@ -672,15 +565,15 @@ document.addEventListener('onkeyup', function(e) {
 	switch (e.target.id) {
 	
 		case "inputOption8A":
-			inputOptionChanged();
+			valueChanged();
 			break;
 			
 		case "inputOption8B":
-			inputOptionChanged();
+			valueChanged();
 			break;
 			
 		case "joinOptionTi":
-			joinOptionChanged();
+			valueChanged();
 			break;
 			
 		default:
@@ -696,15 +589,15 @@ document.addEventListener('onchange', function(e) {
 	switch (e.target.id) {
 	
 		case "inputOption8A":
-			inputOptionChanged();
+			valueChanged();
 			break;
 			
 		case "inputOption8B":
-			inputOptionChanged();
+			valueChanged();
 			break;
 			
 		case "joinOptionTi":
-			joinOptionChanged();
+			valueChanged();
 			break;
 			
 		default:
@@ -758,7 +651,7 @@ document.addEventListener('DOMContentLoaded', function() {
 	
 	settingTbl = document.getElementById('settingTable');
 	
-	detailButton = document.getElementById('detailButton');
+	confButton = document.getElementById('confButton');
 
 });
 
