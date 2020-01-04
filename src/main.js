@@ -343,7 +343,7 @@ displaySetting = function() {
 }
 
 presetAdd = function () {
-	
+	alert("+")
 }
 
 presetYJ = function () {
@@ -517,7 +517,66 @@ document.addEventListener('click', function(e) {
 //	console.log(e.target.id);
 	
 	switch (e.target.id) {
+		
+		case "replaceButton":
+			replaceText();
+			break;
 	
+		case "clearButton":
+			textClear();
+			break;
+	
+		case "pasteButton":
+			pasteFromClipboard();
+			break;
+	
+		case "onceButton":
+			oneClick();
+			break;
+	
+		case "copyButton":
+			copyToClipboard();
+			break;
+	
+		case "testButton":
+			lsTest();
+			break;
+	
+		case "detailButton":
+			displaySetting();
+			break;
+			
+		case "presetButton0":
+			presetAdd();
+			break;
+			
+		case "presetButton1":
+			setPreset("356","0","12346");
+			break;
+			
+		case "presetButton2":
+			setPreset("1234567","1","1346");
+			break;
+			
+		case "presetButton3":
+			setPreset("3","-1","126");
+			break;
+			
+		case "presetButton4":
+			setPreset("1267","1","6");
+			break;
+			
+		case "presetButton5":
+			setPreset("68","1","5");
+			break;
+			
+		case "presetButton6":
+			setPreset("69ace","1","");
+			break;
+			
+			
+			
+			
 		case "narrowOption":
 			WideNarrowChanged();
 			break;
@@ -726,23 +785,24 @@ document.addEventListener('DOMContentLoaded', function() {
 	detailButton = document.getElementById('detailButton');
 
 
-	document.getElementById('replaceButton').addEventListener('click', replaceText);
-	document.getElementById('clearButton').addEventListener('click', textClear);
+
+//	document.getElementById('replaceButton').addEventListener('click', replaceText);
+//	document.getElementById('clearButton').addEventListener('click', textClear);
 	
-	document.getElementById('pasteButton').addEventListener('click', pasteFromClipboard);
-	document.getElementById('onceButton').addEventListener('click', oneClick);
-	document.getElementById('copyButton').addEventListener('click', copyToClipboard);
+//	document.getElementById('pasteButton').addEventListener('click', pasteFromClipboard);
+//	document.getElementById('onceButton').addEventListener('click', oneClick);
+//	document.getElementById('copyButton').addEventListener('click', copyToClipboard);
 	
-	document.getElementById('testButton').addEventListener('click', lsTest);
+//	document.getElementById('testButton').addEventListener('click', lsTest);
 	
-	document.getElementById('presetButton0').addEventListener('click', presetAdd);
-	document.getElementById('presetButton1').addEventListener('click', presetYJ);
-	document.getElementById('presetButton2').addEventListener('click', presetDrugName);
-	document.getElementById('presetButton3').addEventListener('click', presetSort);
-	document.getElementById('presetButton4').addEventListener('click', presetList);
-	document.getElementById('presetButton5').addEventListener('click', presetSp2Tab);
-	document.getElementById('presetButton6').addEventListener('click', presetNW);
-	document.getElementById('detailButton').addEventListener('click', displaySetting);
+//	document.getElementById('presetButton0').addEventListener('click', presetAdd);
+//	document.getElementById('presetButton1').addEventListener('click', presetYJ);
+//	document.getElementById('presetButton2').addEventListener('click', presetDrugName);
+//	document.getElementById('presetButton3').addEventListener('click', presetSort);
+//	document.getElementById('presetButton4').addEventListener('click', presetList);
+//	document.getElementById('presetButton5').addEventListener('click', presetSp2Tab);
+//	document.getElementById('presetButton6').addEventListener('click', presetNW);
+//	document.getElementById('detailButton').addEventListener('click', displaySetting);
 	
 	
 });
