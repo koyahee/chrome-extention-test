@@ -346,30 +346,6 @@ presetAdd = function () {
 	alert("+")
 }
 
-presetYJ = function () {
-	setPreset("356","0","12346");
-}
-
-presetDrugName = function () {
-	setPreset("1234567","1","1346");
-}
-	
-presetSort = function () {
-	setPreset("3","-1","126");
-}
-
-presetList = function () {
-	setPreset("1267","1","6");
-}
-
-presetSp2Tab = function () {
-	setPreset("68","1","5");
-}
-
-presetNW = function () {
-	setPreset("69ace","1","");
-}
-
 setPreset = function (iOption,wn,oOption) {
 	
 	if(String(iOption).match(1)) {
