@@ -316,28 +316,36 @@ var i,value;
 		uniqueArray = array;
 	} else {
 for ( i=0; i<array.length; i++) {
-   value = array[i];
-	  if (!(value in storage)) {
-	   storage[value] = true;
+		 value = array[i];
+			if (!(value in storage)) {
+			 storage[value] = true;
 		 uniqueArray.push(value);
-	   }
-   }
+			 }
+		 }
 	}
-   return uniqueArray;
+		 return uniqueArray;
 }
 
 displaySetting = function() {
 	if(settingTbl.style.visibility=="") {
 		settingTbl.style.visibility="hidden";
 		settingTbl.style.display="none";
-		detailButton.value="詳細設定　▽";
+		detailButton.value="設定 ▽";
+		window.resizeTo(930, 500);
+		
 	} else {
 		settingTbl.style.visibility="";
 		settingTbl.style.display="";
-		detailButton.value="詳細設定　△";
+		detailButton.value="設定 △";
 	}
-}
 	
+	resizeWindow();
+}
+
+presetAdd = function () {
+	
+}
+
 presetYJ = function () {
 	setPreset("356","0","12346");
 }
@@ -505,10 +513,174 @@ resize = function (width, height) {
 
 
 
+document.addEventListener('click', function(e) {
+//	console.log(e.target.id);
+	
+	switch (e.target.id) {
+	
+		case "narrowOption":
+			WideNarrowChanged();
+			break;
+			
+		case "wideOption":
+			WideNarrowChanged();
+			break;
+			
+		case "wnOption":
+			WideNarrowChanged();
+			break;
+			
+		case "splitOption1":
+			splitOptionChanged();
+			break;
+			
+		case "splitOption2":
+			splitOptionChanged();
+			break;
+			
+		case "splitOption3":
+			splitOptionChanged();
+			break;
+			
+		case "splitOption4":
+			splitOptionChanged();
+			break;
+			
+		case "splitOption5":
+			splitOptionChanged();
+			break;
+			
+		case "splitOption6":
+			splitOptionChanged();
+			break;
+			
+			
+		case "inputOption1":
+			inputOptionChanged();
+			break;
+			
+		case "inputOption2":
+			inputOptionChanged();
+			break;
+			
+		case "inputOption3":
+			inputOptionChanged();
+			break;
+			
+		case "inputOption4":
+			inputOptionChanged();
+			break;
+			
+		case "inputOption5":
+			inputOptionChanged();
+			break;
+			
+		case "inputOption6":
+			inputOptionChanged();
+			break;
+			
+		case "inputOption7":
+			inputOptionChanged();
+			break;
+			
+		case "inputOption8":
+			inputOptionChanged();
+			break;
+			
+			
+		case "uniqueOption":
+			UniqueChanged();
+			break;
+			
+			
+		case "sortOption":
+			SortChanged();
+			break;
+			
+			
+		case "joinOption1":
+			joinOptionChanged();
+			break;
+			
+		case "joinOption2":
+			joinOptionChanged();
+			break;
+			
+		case "joinOption3":
+			joinOptionChanged();
+			break;
+			
+		case "joinOption4":
+			joinOptionChanged();
+			break;
+			
+		case "joinOptionT":
+			joinOptionChanged();
+			break;
+			
+			
+		case "allOption":
+			allOptionChanged();
+			break;
+			
+			
+			
+		default:
+			break;
+	}
+
+});
+
+document.addEventListener('onkeyup', function(e) {
+//	console.log(e.target.id);
+	
+	switch (e.target.id) {
+	
+		case "inputOption8A":
+			inputOptionChanged();
+			break;
+			
+		case "inputOption8B":
+			inputOptionChanged();
+			break;
+			
+		case "joinOptionTi":
+			joinOptionChanged();
+			break;
+			
+		default:
+			break;
+	
+	}
+
+});
+
+document.addEventListener('onchange', function(e) {
+//	console.log(e.target.id);
+	
+	switch (e.target.id) {
+	
+		case "inputOption8A":
+			inputOptionChanged();
+			break;
+			
+		case "inputOption8B":
+			inputOptionChanged();
+			break;
+			
+		case "joinOptionTi":
+			joinOptionChanged();
+			break;
+			
+		default:
+			break;
+	
+	}
+
+});
 
 
 document.addEventListener('DOMContentLoaded', function() {
-
 
 	outputText = document.getElementById('outputText');
 	inputText = document.getElementById('inputText');
@@ -563,7 +735,7 @@ document.addEventListener('DOMContentLoaded', function() {
 	
 	document.getElementById('testButton').addEventListener('click', lsTest);
 	
-	
+	document.getElementById('presetButton0').addEventListener('click', presetAdd);
 	document.getElementById('presetButton1').addEventListener('click', presetYJ);
 	document.getElementById('presetButton2').addEventListener('click', presetDrugName);
 	document.getElementById('presetButton3').addEventListener('click', presetSort);
@@ -571,14 +743,50 @@ document.addEventListener('DOMContentLoaded', function() {
 	document.getElementById('presetButton5').addEventListener('click', presetSp2Tab);
 	document.getElementById('presetButton6').addEventListener('click', presetNW);
 	document.getElementById('detailButton').addEventListener('click', displaySetting);
-		
+	
 	
 });
 
+var queue = null, // キューをストック 
+wait = 300; // 0.3秒後に実行の場合 
+ 
+window.addEventListener( 'resize', function() {
+// イベント発生の都度、キューをキャンセル 
+clearTimeout( queue );
+ 
+// waitで指定したミリ秒後に所定の処理を実行 
+// 経過前に再度イベントが発生した場合
+// キューをキャンセルして再カウント 
+queue = setTimeout(function() {
+// リサイズ時に行う処理 
+resizeWindow();
+}, wait );
+}, false );
+
+resizeWindow = function () {
+//	window.resizeTo(930, 500);
+	window.resizeTo(930, document.documentElement.clientHeight + window.outerHeight - window.innerHeight);
+}
 
 lsTest = function () {
-	alert(localStorage.getItem("key"));
-	localStorage.setItem("key", "aaa");
+
+	
+/*
+	alert(window.innerHeight);
+	alert(window.outerHeight);
+	alert(document.body.clientHeight);
+	alert(document.documentElement.clientHeight);
+	
+	alert(window.innerWidth);
+	alert(window.outerWidth);
+	alert(document.body.clientWidth);
+	alert(document.documentElement.clientWidth);
+*/	
+	window.resizeTo(930, 500);
+	window.resizeTo(930, document.documentElement.clientHeight + window.outerHeight - window.innerHeight);
+	
+//	alert(localStorage.getItem("key"));
+//	localStorage.setItem("key", "aaa");
 }
 
 // Write Javascript code!
@@ -595,10 +803,10 @@ const copyToClipboard = function () {
 const pasteFromClipboard = function () {
 	navigator.clipboard.readText()
 	.then(function (text) {
-	  document.getElementById('inputText').textContent = text;
+		document.getElementById('inputText').textContent = text;
 		console.log('pasted from clipboard');
 	}, function () {
-	  console.log('failed to paste');
+		console.log('failed to paste');
 	});
 };
 
