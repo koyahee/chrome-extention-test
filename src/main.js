@@ -760,27 +760,6 @@ document.addEventListener('DOMContentLoaded', function() {
 	
 	detailButton = document.getElementById('detailButton');
 
-
-
-//	document.getElementById('replaceButton').addEventListener('click', replaceText);
-//	document.getElementById('clearButton').addEventListener('click', textClear);
-	
-//	document.getElementById('pasteButton').addEventListener('click', pasteFromClipboard);
-//	document.getElementById('onceButton').addEventListener('click', oneClick);
-//	document.getElementById('copyButton').addEventListener('click', copyToClipboard);
-	
-//	document.getElementById('testButton').addEventListener('click', lsTest);
-	
-//	document.getElementById('presetButton0').addEventListener('click', presetAdd);
-//	document.getElementById('presetButton1').addEventListener('click', presetYJ);
-//	document.getElementById('presetButton2').addEventListener('click', presetDrugName);
-//	document.getElementById('presetButton3').addEventListener('click', presetSort);
-//	document.getElementById('presetButton4').addEventListener('click', presetList);
-//	document.getElementById('presetButton5').addEventListener('click', presetSp2Tab);
-//	document.getElementById('presetButton6').addEventListener('click', presetNW);
-//	document.getElementById('detailButton').addEventListener('click', displaySetting);
-	
-	
 });
 
 var queue = null, // キューをストック 
