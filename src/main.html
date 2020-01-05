@@ -18,27 +18,24 @@
 <td><input id ="copyButton" type="button" value="Copy" class="message" /><span id="infoText"></span></td></tr>
 </table>
 <hr>
-<input id ="testButton" type="button" value="てすと" />
-<table>
-<tr>
-<td><input id ="confButton" type="button" value="設定 ▽"  /></td>
-<td>プリセット：</td>
-<td><input id ="presetButton1" type="button" value="YJコード" /></td>
-<td><input id ="presetButton2" type="button" value="薬剤名" /></td>
-<td><input id ="presetButton3" type="button" value="重複削除" /></td>
-<td><input id ="presetButton4" type="button" value="リスト化" /></td>
-<td><input id ="presetButton5" type="button" value="\s+→\t" /></td>
-<td><input id ="presetButton6" type="button" value="おまかせ" /></td>
-<td><input id ="presetButton0" type="button" value="＋" /></td>
-<td>　</td>
-</tr>
-</table>
 
+<input id ="testButton" type="button" value="てすと" /></br>
+
+<input id ="confButton" type="button" value="設定 ▽" />
+プリセット：<span id="presetContainer">
+<input id ="presetButton1" name="presetButton" type="button" value="YJコード" />
+<input id ="presetButton2" name="presetButton" type="button" value="薬剤名" />
+<input id ="presetButton3" name="presetButton" type="button" value="重複削除" />
+<input id ="presetButton4" name="presetButton" type="button" value="リスト化" />
+<input id ="presetButton5" name="presetButton" type="button" value="\s+→\t" />
+<input id ="presetButton6" name="presetButton" type="button" value="おまかせ" />
+</span>
+<input id ="presetButton0" type="button" value="＋" />
 
 <!-- ↓ 設定 ↓ -->
 <table id="settingTable" style="visibility:hidden; display:none;" border>
 <!-- ↓ 設定 入力 ↓ -->
-<tr><td colspan="3"><label>プリセット名：<input id="presetName" type="text" size="40" name="presetName" /></label></td></tr>
+<tr><td colspan="3"><label>プリセット名：<input id="presetName" type="text" size="25" name="presetName" /></label><input id ="resetButton" type="button" value="save" class="message" /><input id ="resetButton" type="button" value="reset" class="message" /><input id ="deleteButton" type="button" value="delete" class="message" /></td></tr>
 <tr><td colspan="2" style="width:50px;">入力：</td><td>
 <label><input id="splitOption1" type="checkbox" name="option" /><span class="message">splitOption1</span></label>　
 <label><input id="splitOption5" type="checkbox" name="option" /><span class="message">splitOption5</span></label>　
