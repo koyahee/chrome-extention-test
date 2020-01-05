@@ -44,7 +44,6 @@ replaceMessage = function () {
 	_replaceMessage("onceButton")
 	_replaceMessage("copyButton")
 	
-
 }
 
 
@@ -337,7 +336,6 @@ allOptionChanged = function() {
 	replaceText();
 }
 
-	
 oneClick = function () {
 	pasteFromClipboard();
 	replaceText();
@@ -379,10 +377,60 @@ displaySetting = function() {
 }
 
 presetAdd = function () {
-	alert("+")
+	alert("+");
+	
+	setOption();
 }
 
-setPreset = function (iOption,wn,oOption) {
+getOption  = function () {
+
+	var pName = presetName.value;
+	var iOption = "";
+	var wn = -1;
+	var oOption = "";
+	
+	if(splitOption1.checked) { iOption = iOption + "1";}
+	if(splitOption2.checked) { iOption = iOption + "2";}
+	if(splitOption3.checked) { iOption = iOption + "3";}
+	if(splitOption4.checked) { iOption = iOption + "4";}
+	if(inputOption1.checked) { iOption = iOption + "5";}
+	if(inputOption2.checked) { iOption = iOption + "6";}
+	if(splitOption5.checked) { iOption = iOption + "7";}
+	if(splitOption6.checked) { iOption = iOption + "8";}
+	if(inputOption3.checked) { iOption = iOption + "9";}
+	if(inputOption4.checked) { iOption = iOption + "a";}
+	if(inputOption5.checked) { iOption = iOption + "b";}
+	if(inputOption6.checked) { iOption = iOption + "c";}
+	if(inputOption7.checked) { iOption = iOption + "d";}
+	if(inputOption8.checked) { iOption = iOption + "e";}
+	
+	if(narrowOption.checked) { wn = 0;}
+	if(wideOption.checked) { wn = 1;}
+	if(wnOption.checked) { wn = -1;}
+	
+	if(uniqueOption.checked) { oOption = oOption + "1";}
+	if(sortOption.checked) { oOption = oOption + "2";}
+	if(joinOption1.checked) { oOption = oOption + "3";}
+	if(joinOption2.checked) { oOption = oOption + "4";}
+	if(joinOption3.checked) { oOption = oOption + "5";}
+	if(joinOption4.checked) { oOption = oOption + "6";}
+	if(joinOptionT.checked) { oOption = oOption + "7";}
+	
+	if(allOption.checked) { oOption = oOption + "a";}
+	
+	return {pName:pName, iOption:iOption ,wn: wn, oOption: oOption};
+
+}
+
+
+setOption = function (optionObj = {}) {
+	
+	var pName = ("pName" in optionObj) ? optionObj.pName : "";
+	var iOption = ("iOption" in optionObj) ? optionObj.iOption : "";
+	var wn = ("wn" in optionObj) ? optionObj.wn : "";
+	var oOption = ("oOption" in optionObj) ? optionObj.oOption : "";
+	
+	presetName.value = pName;
 	
 	if(String(iOption).match(1)) {
 		splitOption1.checked = "checked"//「、」で分割
@@ -524,7 +572,6 @@ resize = function (width, height) {
 }
 
 
-
 document.addEventListener('click', function(e) {
 
 	switch (e.target.name) {
@@ -578,27 +625,27 @@ document.addEventListener('click', function(e) {
 			
 			
 		case "presetButton1":
-			setPreset("356","0","12346");
+			setOption({iOption:"356" ,wn: "0", oOption: "12346"});
 			break;
 			
 		case "presetButton2":
-			setPreset("1234567","1","1346");
+			setOption({iOption:"1234567" ,wn: "1", oOption: "1346"});
 			break;
 			
 		case "presetButton3":
-			setPreset("3","-1","126");
+			setOption({iOption:"3" ,wn: "-1", oOption: "126"});
 			break;
 			
 		case "presetButton4":
-			setPreset("1267","1","6");
+			setOption({iOption:"1267" ,wn: "1", oOption: "6"});
 			break;
 			
 		case "presetButton5":
-			setPreset("68","1","5");
+			setOption({iOption:"68" ,wn: "1", oOption: "5"});
 			break;
 			
 		case "presetButton6":
-			setPreset("69ace","1","");
+			setOption({iOption:"69ace" ,wn: "1", oOption: ""});
 			break;
 			
 			
@@ -606,6 +653,21 @@ document.addEventListener('click', function(e) {
 			allOptionChanged();
 			break;
 			
+			
+		case "saveButton":
+			savePresets();
+			break;
+			
+		case "resetButton":
+			loadPresets();
+			break;
+			
+		case "deleteButton":
+			break;
+			
+		case "loadButton":
+			loadPresets();
+			break;
 			
 		default:
 			break;
@@ -705,10 +767,12 @@ document.addEventListener('DOMContentLoaded', function() {
 	
 	settingTbl = document.getElementById('settingTable');
 	
+	presetName = document.getElementById('presetName');
+	
 	confButton = document.getElementById('confButton');
 
 	replaceMessage();
-	
+	window.resizeTo(930, 500);
 });
 
 var queue = null, // キューをストック 
@@ -732,7 +796,20 @@ resizeWindow = function () {
 	window.resizeTo(930, document.documentElement.clientHeight + window.outerHeight - window.innerHeight);
 }
 
+
+savePresets = function () {
+	alert(JSON.stringify(getOption()));
+	localStorage.options = JSON.stringify(getOption());
+}
+
+loadPresets = function () {
+	alert(localStorage.options);
+	setOption(JSON.parse(localStorage.options));
+}
+
 lsTest = function () {
+
+	alert(getOption());
 
 /*
 	alert(window.innerHeight);
@@ -745,8 +822,8 @@ lsTest = function () {
 	alert(document.body.clientWidth);
 	alert(document.documentElement.clientWidth);
 */
-	window.resizeTo(930, 500);
-	window.resizeTo(930, document.documentElement.clientHeight + window.outerHeight - window.innerHeight);
+//	window.resizeTo(930, 500);
+//	window.resizeTo(930, document.documentElement.clientHeight + window.outerHeight - window.innerHeight);
 	
 //	alert(localStorage.getItem("key"));
 //	localStorage.setItem("key", "aaa");
