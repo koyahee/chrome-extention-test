@@ -8,6 +8,63 @@ var presetObj;
 
 var checkCount;
 
+replaceMessage = function () {
+	
+	_replaceMessage("splitOption1")
+	_replaceMessage("splitOption2")
+	_replaceMessage("splitOption3")
+	_replaceMessage("splitOption4")
+	_replaceMessage("splitOption5")
+	_replaceMessage("splitOption6")
+
+	_replaceMessage("inputOption1")
+	_replaceMessage("inputOption2")
+	_replaceMessage("inputOption3")
+	_replaceMessage("inputOption4")
+	_replaceMessage("inputOption5")
+	_replaceMessage("inputOption6")
+	_replaceMessage("inputOption7")
+	_replaceMessage("inputOption8")
+
+	_replaceMessage("narrowOption")
+	_replaceMessage("wideOption")
+	_replaceMessage("wnOption")
+	_replaceMessage("uniqueOption")
+	_replaceMessage("sortOption")
+	_replaceMessage("joinOption1")
+	_replaceMessage("joinOption2")
+	_replaceMessage("joinOption3")
+	_replaceMessage("joinOption4")
+	_replaceMessage("allOption")
+	_replaceMessage("joinOptionT")
+	
+	_replaceMessage("conversionButton")
+	_replaceMessage("clearButton")
+	_replaceMessage("pasteButton")
+	_replaceMessage("onceButton")
+	_replaceMessage("copyButton")
+	
+
+}
+
+
+_replaceMessage = function (id) {
+	
+	var element = document.getElementById(id)
+	
+	if(element.className == "message") {
+		element.value = chrome.i18n.getMessage(id);
+	} else {
+	
+		var parents = element.parentNode.childNodes;
+		
+		for (let i=0; i<parents.length; i++) {
+			if(parents[i].className == "message") {
+				parents[i].innerHTML = chrome.i18n.getMessage(id);
+			}
+		}
+	}
+}
 
 textClear = function () {
 //	alert("clear");
@@ -483,7 +540,7 @@ document.addEventListener('click', function(e) {
 	
 	switch (e.target.id) {
 		
-		case "replaceButton":
+		case "conversionButton":
 			replaceText();
 			break;
 	
@@ -545,13 +602,10 @@ document.addEventListener('click', function(e) {
 			break;
 			
 			
-			
-			
-			
-			
 		case "allOption":
 			allOptionChanged();
 			break;
+			
 			
 		default:
 			break;
@@ -653,6 +707,8 @@ document.addEventListener('DOMContentLoaded', function() {
 	
 	confButton = document.getElementById('confButton');
 
+	replaceMessage();
+	
 });
 
 var queue = null, // キューをストック 
@@ -678,7 +734,6 @@ resizeWindow = function () {
 
 lsTest = function () {
 
-	
 /*
 	alert(window.innerHeight);
 	alert(window.outerHeight);
@@ -689,7 +744,7 @@ lsTest = function () {
 	alert(window.outerWidth);
 	alert(document.body.clientWidth);
 	alert(document.documentElement.clientWidth);
-*/	
+*/
 	window.resizeTo(930, 500);
 	window.resizeTo(930, document.documentElement.clientHeight + window.outerHeight - window.innerHeight);
 	
