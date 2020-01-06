@@ -1,0 +1,38 @@
+{
+	"splitOption1": {"message":"「、」で分割"}
+	,"splitOption2": {"message":"「TAB」で分割"}
+	,"splitOption3": {"message":"「改行」で分割"}
+	,"splitOption4": {"message":"「／」で分割"}
+	,"splitOption5": {"message":"「，」で分割"}
+	,"splitOption6": {"message":"「　」で分割"}
+	
+	,"inputOption1": {"message":"「”」の除去"}
+	,"inputOption2": {"message":"前後の空白の除去"}
+	,"inputOption3": {"message":"空白の除去"}
+	,"inputOption4": {"message":"，→、"}
+	,"inputOption5": {"message":"、→，"}
+	,"inputOption6": {"message":"．→。"}
+	,"inputOption7": {"message":"。→．"}
+	,"inputOption8": {"message":"「　」→「　」"}
+	
+	,"narrowOption": {"message":"半角"}
+	,"wideOption": {"message":"全角"}
+	,"wnOption": {"message":"そのまま"}
+	,"uniqueOption": {"message":"重複削除"}
+	,"sortOption": {"message":"ソート"}
+	,"joinOption1": {"message":"「'」でくくる"}
+	,"joinOption2": {"message":"「,」で区切る"}
+	,"joinOption3": {"message":"「TAB」で区切る"}
+	,"joinOption4": {"message":"改行"}
+	,"allOption": {"message":"全部"}
+	,"joinOptionT": {"message":"で区切る"}
+
+	,"conversionButton": {"message":"変換"}
+	,"clearButton": {"message":"クリア"}
+	,"pasteButton": {"message":"貼り付け"}
+	,"onceButton": {"message":"自動"}
+	,"copyButton": {"message":"結果をコピー"}
+	
+	
+}
+
