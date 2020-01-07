@@ -558,7 +558,7 @@ setOption = function (optionObj = {}) {
 		replaceText();
 	}
 
-	
+	checkChecked();
 }
 
 
