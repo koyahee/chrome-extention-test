@@ -73,14 +73,17 @@ textClear = function () {
 }
 	
 replaceText = function() {
-	var cwn = new CharWideNarrow();
 	var tmpList = inputText.value;
 	
 	if(wideOption.checked) {
-		tmpList = cwn.ToWideAll(tmpList,1);
+		tmpList = tmpList.replace(/[A-Za-z0-9]/g, function(s) {
+			return String.fromCharCode(s.charCodeAt(0) + 0xFEE0);
+		});
 		tmpList = tmpList.replace(/　+\r\n/g, "\r\n");
 	} else if (narrowOption.checked) {
-		tmpList = cwn.ToNarrowASCII(tmpList);
+		tmpList = tmpList.replace(/[Ａ-Ｚａ-ｚ０-９]/g, function(s) {
+		return String.fromCharCode(s.charCodeAt(0) - 0xFEE0);
+		});
 		tmpList = tmpList.replace(/ +\r\n/g, "\r\n");
 	}
 	
@@ -284,15 +287,8 @@ replaceText = function() {
 	}
 	
 	var out = join1 + arr.join(join1 + join2 + joinText + join3 + join4 + join1) + join1;
-	outputText.value = out;
-	/*
-	var datalength = arr.length;
-	
-	for(var i=0; i<datalength;i++) {
-		outputText.value = outputText.value + '\'' + cwn.ToNarrowAll(arr[i]) + '\'\n';
-	}
-	*/
-	outputText.value = outputText.value.replace(/''/g, "")
+
+	outputText.value = out.replace(/''/g, "")
 }
 
 valueChanged = function() {
