@@ -839,7 +839,7 @@ const copyToClipboard = function () {
 const pasteFromClipboard = function () {
 	navigator.clipboard.readText()
 	.then(function (text) {
-		document.getElementById('inputText').textContent = text;
+		document.getElementById('inputText').value = text;
 		console.log('pasted from clipboard');
 	}, function () {
 		console.log('failed to paste');
