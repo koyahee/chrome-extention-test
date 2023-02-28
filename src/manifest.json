@@ -2,17 +2,12 @@
   "name": "Chrome拡張test",
   "description": "文字列変換",
   "version": "0.6",
-  "manifest_version": 2,
+  "manifest_version": 3,
   "default_locale": "en",
-  "browser_action": {
-    "default_title": "文字列変換"
-  },
   "background": {
-    "scripts": [
-      "background.js"
-    ],
-    "persistent": false
+    "service_worker": "background.js"
   },
+  "action": {},
   "icons": {
     "16": "icon16.png",
     "48": "icon48.png",
